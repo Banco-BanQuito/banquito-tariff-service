@@ -42,13 +42,15 @@ Payload que Paul debe enviar a Oscar usando el resultado de este micro:
 El servicio corre en:
 
 ```text
-http://localhost:8086
+REST: http://localhost:8086
+gRPC: localhost:9090
 ```
 
 Configurado en:
 
 ```properties
 server.port=8086
+grpc.server.port=9090
 ```
 
 ## Base de datos
@@ -257,6 +259,87 @@ FROM service_charge
 WHERE batch_id = 'test-batch-001';
 ```
 
+## Comunicacion gRPC para Paul
+
+Ademas del endpoint REST, el micro expone un servidor gRPC en:
+
+```text
+localhost:9090
+```
+
+El contrato esta definido en:
+
+```text
+src/main/proto/tariff.proto
+```
+
+Servicio gRPC:
+
+```proto
+service TariffGrpcService {
+  rpc CalculateTariff (TariffCalculationGrpcRequest) returns (TariffCalculationGrpcResponse);
+}
+```
+
+Request:
+
+```proto
+message TariffCalculationGrpcRequest {
+  int32 successful_tx = 1;
+  string batch_id = 2;
+}
+```
+
+Response:
+
+```proto
+message TariffCalculationGrpcResponse {
+  int32 successful_tx = 1;
+  string unit_fee = 2;
+  string commission_subtotal = 3;
+  string iva_rate = 4;
+  string iva_amount = 5;
+  string total_charge = 6;
+  string tariff_range_applied = 7;
+}
+```
+
+Los valores monetarios viajan como `string` para no perder precision decimal.
+
+Ejemplo conceptual de cliente gRPC para Paul:
+
+```java
+ManagedChannel channel = ManagedChannelBuilder
+        .forAddress("localhost", 9090)
+        .usePlaintext()
+        .build();
+
+TariffGrpcServiceGrpc.TariffGrpcServiceBlockingStub stub =
+        TariffGrpcServiceGrpc.newBlockingStub(channel);
+
+TariffCalculationGrpcResponse response = stub.calculateTariff(
+        TariffCalculationGrpcRequest.newBuilder()
+                .setSuccessfulTx(72)
+                .setBatchId("test-batch-001")
+                .build()
+);
+
+BigDecimal commissionAmount = new BigDecimal(response.getTotalCharge());
+
+channel.shutdown();
+```
+
+Luego Paul envia a Oscar/Core:
+
+```json
+{
+  "payrollTotalAmount": 10000.00,
+  "commissionAmount": 66.24
+}
+```
+
+Importante: tanto REST como gRPC usan la misma logica interna `TariffCalculationService`, por eso ambos calculan igual y ambos registran el resultado en `service_charge`.
+
 ## Pruebas manuales
 
 ### Prueba 1: Health
@@ -286,6 +369,34 @@ ORDER BY id DESC;
 ```
 
 Debe aparecer el lote calculado.
+
+### Prueba gRPC
+
+Para probar gRPC puedes usar `grpcurl` si lo tienes instalado. Primero levanta el micro:
+
+```powershell
+mvn spring-boot:run
+```
+
+Luego ejecuta:
+
+```powershell
+grpcurl -plaintext -d "{\"successful_tx\":72,\"batch_id\":\"test-batch-grpc-001\"}" localhost:9090 banquito.tariff.TariffGrpcService/CalculateTariff
+```
+
+Respuesta esperada:
+
+```json
+{
+  "successfulTx": 72,
+  "unitFee": "0.80",
+  "commissionSubtotal": "57.60",
+  "ivaRate": "0.15",
+  "ivaAmount": "8.64",
+  "totalCharge": "66.24",
+  "tariffRangeApplied": "51-100 tx"
+}
+```
 
 ### Prueba 4: Sin tarifa aplicable
 
