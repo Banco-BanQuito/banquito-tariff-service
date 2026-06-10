@@ -28,4 +28,4 @@ jobs:
           context: ./banquito-tariff-service
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/tariff-serviceatest
+          tags: ghcr.io/banco-banquito/tariff-service:latest
