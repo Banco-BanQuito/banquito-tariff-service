@@ -23,6 +23,7 @@ jobs:
           cache: maven
 
       - name: Build JAR
+        working-directory: banquito-tariff-service
         run: mvn package -DskipTests -q
 
       - name: Log in to GitHub Container Registry
@@ -35,6 +36,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: banquito-tariff-service
           push: true
           tags: ghcr.io/banco-banquito/tariff-service:latest
