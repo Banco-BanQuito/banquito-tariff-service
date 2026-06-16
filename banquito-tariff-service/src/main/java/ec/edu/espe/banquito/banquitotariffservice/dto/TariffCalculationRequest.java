@@ -6,6 +6,7 @@ public class TariffCalculationRequest {
     private String batchId;
 
     public TariffCalculationRequest() {
+        // Constructor requerido por Jackson para la deserialización JSON.
     }
 
     public Integer getSuccessfulTx() {

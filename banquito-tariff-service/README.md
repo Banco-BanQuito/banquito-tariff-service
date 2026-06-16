@@ -274,6 +274,14 @@ src/main/proto/tariff.proto
 ```
 
 Servicio gRPC:
+```
+grpcurl -plaintext `
+  -import-path src/main/proto `
+-proto tariff.proto `
+  -d '{\"successful_tx\":72,\"batch_id\":\"test-batch-grpc-001\"}' `
+localhost:9090 `
+banquito.tariff.TariffGrpcService/CalculateTariff
+```
 
 ```proto
 service TariffGrpcService {
