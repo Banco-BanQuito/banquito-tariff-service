@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.math.BigDecimal;
 
 @Entity
@@ -14,28 +15,24 @@ public class PaymentTariff {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "min_transactions", nullable = false)
+    @Column(name = "min_successful_tx", nullable = false)
     private Integer minTransactions;
 
-    @Column(name = "max_transactions", nullable = false)
+    @Column(name = "max_successful_tx", nullable = false)
     private Integer maxTransactions;
 
     @Column(name = "unit_fee", nullable = false, precision = 10, scale = 2)
     private BigDecimal unitFee;
 
-    @Column(name = "description", nullable = false)
-    private String description;
-
     public PaymentTariff() {
     }
 
     public PaymentTariff(Long id, Integer minTransactions, Integer maxTransactions,
-            BigDecimal unitFee, String description) {
+            BigDecimal unitFee) {
         this.id = id;
         this.minTransactions = minTransactions;
         this.maxTransactions = maxTransactions;
         this.unitFee = unitFee;
-        this.description = description;
     }
 
     public Long getId() {
@@ -70,11 +67,8 @@ public class PaymentTariff {
         this.unitFee = unitFee;
     }
 
+    @Transient
     public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        return "Rango " + minTransactions + "-" + maxTransactions + " transacciones";
     }
 }

@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -18,8 +19,11 @@ public class ServiceCharge {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "batch_id", nullable = false)
+    @Column(name = "payment_batch_id", nullable = false)
     private String batchId;
+
+    @Column(name = "payment_tariff_id", nullable = false)
+    private Long paymentTariffId;
 
     @Column(name = "successful_tx", nullable = false)
     private Integer successfulTx;
@@ -39,7 +43,7 @@ public class ServiceCharge {
     @Column(name = "total_charge", nullable = false, precision = 14, scale = 2)
     private BigDecimal totalCharge;
 
-    @Column(name = "tariff_range_applied", nullable = false)
+    @Transient
     private String tariffRangeApplied;
 
     @Column(name = "calculated_at", nullable = false)
@@ -59,6 +63,14 @@ public class ServiceCharge {
 
     public void setBatchId(String batchId) {
         this.batchId = batchId;
+    }
+
+    public Long getPaymentTariffId() {
+        return paymentTariffId;
+    }
+
+    public void setPaymentTariffId(Long paymentTariffId) {
+        this.paymentTariffId = paymentTariffId;
     }
 
     public Integer getSuccessfulTx() {

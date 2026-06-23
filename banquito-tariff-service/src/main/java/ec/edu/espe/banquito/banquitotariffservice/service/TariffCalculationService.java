@@ -43,6 +43,7 @@ public class TariffCalculationService {
 
         ServiceCharge charge = new ServiceCharge();
         charge.setBatchId(batchId);
+        charge.setPaymentTariffId(tariff.getId());
         charge.setSuccessfulTx(successfulTx);
         charge.setUnitFee(tariff.getUnitFee());
         charge.setCommissionSubtotal(subtotal);
