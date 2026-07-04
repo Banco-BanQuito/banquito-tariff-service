@@ -1,8 +1,8 @@
-package ec.edu.espe.banquito.banquitotariffservice.grpc;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.grpc;
 
-import ec.edu.espe.banquito.banquitotariffservice.dto.TariffCalculationResponse;
-import ec.edu.espe.banquito.banquitotariffservice.exception.TariffNotFoundException;
-import ec.edu.espe.banquito.banquitotariffservice.service.TariffCalculationService;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.dto.TariffCalculationResponse;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.exception.TariffNotFoundException;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.service.TariffCalculationService;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import org.springframework.stereotype.Service;

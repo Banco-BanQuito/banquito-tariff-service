@@ -1,4 +1,4 @@
-package ec.edu.espe.banquito.banquitotariffservice;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

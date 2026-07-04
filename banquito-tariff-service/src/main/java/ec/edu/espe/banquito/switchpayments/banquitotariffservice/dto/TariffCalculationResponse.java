@@ -1,4 +1,4 @@
-package ec.edu.espe.banquito.banquitotariffservice.dto;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.dto;
 
 import java.math.BigDecimal;
 

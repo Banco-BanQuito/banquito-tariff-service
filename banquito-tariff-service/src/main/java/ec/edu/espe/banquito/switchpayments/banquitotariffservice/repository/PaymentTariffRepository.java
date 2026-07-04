@@ -1,6 +1,6 @@
-package ec.edu.espe.banquito.banquitotariffservice.repository;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.repository;
 
-import ec.edu.espe.banquito.banquitotariffservice.model.PaymentTariff;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.model.PaymentTariff;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

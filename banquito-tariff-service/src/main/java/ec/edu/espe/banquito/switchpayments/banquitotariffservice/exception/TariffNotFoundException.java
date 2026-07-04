@@ -1,4 +1,4 @@
-package ec.edu.espe.banquito.banquitotariffservice.exception;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.exception;
 
 public class TariffNotFoundException extends RuntimeException {
 

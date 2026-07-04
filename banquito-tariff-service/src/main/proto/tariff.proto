@@ -3,7 +3,7 @@ syntax = "proto3";
 package banquito.tariff;
 
 option java_multiple_files = true;
-option java_package = "ec.edu.espe.banquito.banquitotariffservice.grpc";
+option java_package = "ec.edu.espe.banquito.switchpayments.banquitotariffservice.grpc";
 option java_outer_classname = "TariffProto";
 
 service TariffGrpcService {

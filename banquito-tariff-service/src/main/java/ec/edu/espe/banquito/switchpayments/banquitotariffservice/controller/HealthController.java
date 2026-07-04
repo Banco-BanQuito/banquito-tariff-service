@@ -1,4 +1,4 @@
-package ec.edu.espe.banquito.banquitotariffservice.controller;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.controller;
 
 import java.util.HashMap;
 import java.util.Map;
