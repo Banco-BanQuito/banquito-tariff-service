@@ -1,4 +1,4 @@
-package ec.edu.espe.banquito.banquitotariffservice.dto;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.dto;
 
 public class TariffCalculationRequest {
 
@@ -6,7 +6,6 @@ public class TariffCalculationRequest {
     private String batchId;
 
     public TariffCalculationRequest() {
-        // Constructor requerido por Jackson para la deserialización JSON.
     }
 
     public Integer getSuccessfulTx() {

@@ -1,4 +1,4 @@
-package ec.edu.espe.banquito.banquitotariffservice.model;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

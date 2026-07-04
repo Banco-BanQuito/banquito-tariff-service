@@ -1,6 +1,6 @@
-package ec.edu.espe.banquito.banquitotariffservice.config;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.config;
 
-import ec.edu.espe.banquito.banquitotariffservice.grpc.TariffGrpcServiceImpl;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.grpc.TariffGrpcServiceImpl;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import java.io.IOException;

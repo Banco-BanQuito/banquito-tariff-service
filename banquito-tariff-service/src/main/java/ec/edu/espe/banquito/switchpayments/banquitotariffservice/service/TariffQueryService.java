@@ -1,8 +1,8 @@
-package ec.edu.espe.banquito.banquitotariffservice.service;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.service;
 
-import ec.edu.espe.banquito.banquitotariffservice.dto.TariffRangeResponse;
-import ec.edu.espe.banquito.banquitotariffservice.model.PaymentTariff;
-import ec.edu.espe.banquito.banquitotariffservice.repository.PaymentTariffRepository;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.dto.TariffRangeResponse;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.model.PaymentTariff;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.repository.PaymentTariffRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

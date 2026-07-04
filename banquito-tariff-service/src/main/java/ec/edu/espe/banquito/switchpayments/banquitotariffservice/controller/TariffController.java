@@ -1,9 +1,9 @@
-package ec.edu.espe.banquito.banquitotariffservice.controller;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.controller;
 
-import ec.edu.espe.banquito.banquitotariffservice.dto.TariffCalculationResponse;
-import ec.edu.espe.banquito.banquitotariffservice.dto.TariffRangeResponse;
-import ec.edu.espe.banquito.banquitotariffservice.service.TariffCalculationService;
-import ec.edu.espe.banquito.banquitotariffservice.service.TariffQueryService;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.dto.TariffCalculationResponse;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.dto.TariffRangeResponse;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.service.TariffCalculationService;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.service.TariffQueryService;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import java.util.List;

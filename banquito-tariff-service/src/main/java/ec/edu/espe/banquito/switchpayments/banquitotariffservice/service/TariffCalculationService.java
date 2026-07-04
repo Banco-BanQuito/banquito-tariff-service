@@ -1,11 +1,11 @@
-package ec.edu.espe.banquito.banquitotariffservice.service;
+package ec.edu.espe.banquito.switchpayments.banquitotariffservice.service;
 
-import ec.edu.espe.banquito.banquitotariffservice.dto.TariffCalculationResponse;
-import ec.edu.espe.banquito.banquitotariffservice.exception.TariffNotFoundException;
-import ec.edu.espe.banquito.banquitotariffservice.model.PaymentTariff;
-import ec.edu.espe.banquito.banquitotariffservice.model.ServiceCharge;
-import ec.edu.espe.banquito.banquitotariffservice.repository.PaymentTariffRepository;
-import ec.edu.espe.banquito.banquitotariffservice.repository.ServiceChargeRepository;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.dto.TariffCalculationResponse;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.exception.TariffNotFoundException;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.model.PaymentTariff;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.model.ServiceCharge;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.repository.PaymentTariffRepository;
+import ec.edu.espe.banquito.switchpayments.banquitotariffservice.repository.ServiceChargeRepository;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Instant;
