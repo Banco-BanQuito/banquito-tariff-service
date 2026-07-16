@@ -8,6 +8,7 @@ public class BanquitoTariffServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BanquitoTariffServiceApplication.class, args);
+		System.out.println("CI/CD backend validation: tariff-service started");
 	}
 
 }
