@@ -42,7 +42,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: >
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-          -DskipTests=true
+          -DskipTests=false
           -Dsonar.projectKey=Banco-BanQuito_banquito-tariff-service
           -Dsonar.organization=banco-banquito
           -Dsonar.host.url=https://sonarcloud.io

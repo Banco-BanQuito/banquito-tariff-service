@@ -1,0 +1,15 @@
+.git/
+.github/
+.mvn/
+mvnw
+mvnw.cmd
+*.md
+.gitignore
+.gitattributes
+.env
+.env.*
+*.log
+logs/
+.idea/
+*.iml
+.vscode/
