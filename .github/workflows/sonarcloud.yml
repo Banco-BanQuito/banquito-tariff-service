@@ -46,3 +46,4 @@ jobs:
           -Dsonar.projectKey=Banco-BanQuito_banquito-tariff-service
           -Dsonar.organization=banco-banquito
           -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.coverage.exclusions=**/config/**,**/dto/**,**/exception/**,**/grpc/**,**/model/**,**/repository/**,**/*Application.java
